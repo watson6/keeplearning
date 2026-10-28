@@ -1,0 +1,116 @@
+# ============================================================================
+#  站点全局配置 —— 所有个人信息集中在这里改
+# ============================================================================
+
+title: 华生 · Watson
+tagline: 后端开发 / 运维工程师
+description: >-
+  华生的个人站点：记录 AOSP 大屏平板测试自动化、运维工程与后端开发的实践、
+  复盘与方法论。
+
+# ---------------------------------------------------------------------------
+#  url / baseurl
+#
+#  本仓库：github.com/watson6/keeplearning（普通仓库，非 username.github.io）
+#  → 站点地址 https://watson6.github.io/keeplearning/
+#  → baseurl 必须是 /keeplearning
+#
+#  GitHub Actions 部署时 configure-pages 会自动注入 base_path，
+#  这里的 baseurl 主要服务于本地 `jekyll serve` 与手动构建。
+# ---------------------------------------------------------------------------
+url: "https://watson6.github.io"
+baseurl: "/keeplearning"
+
+lang: zh-CN
+timezone: Asia/Shanghai
+
+author:
+  name: 华生
+  role: 后端开发工程师 / 运维工程师
+  bio: 负责 AOSP 大屏智能交互平板测试流程自动化改造，长期在 Linux、CI/CD、脚本工程与后端接口之间穿梭。
+  avatar: /assets/img/avatar.svg
+  email: hello@example.com
+  location: 广州 · 中国
+
+# 社交链接（把 url 换成你的真实地址，留空则不渲染）
+social:
+  - name: GitHub
+    icon: github
+    url: "https://github.com/watson6"
+  - name: 邮件
+    icon: mail
+    url: "mailto:hello@example.com"
+
+# 导航
+nav:
+  - name: 首页
+    url: /
+    en: Home
+  - name: 作品
+    url: /projects/
+    en: Work
+  - name: 文章
+    url: /blog/
+    en: Journal
+  - name: 关于
+    url: /about/
+    en: About
+  - name: 联系
+    url: /contact/
+    en: Contact
+
+cta:
+  label: 联系我
+  url: /contact/
+
+footer_note: 用 Jekyll 构建 · GitHub Pages 托管
+
+# ---------------------------------------------------------------------------
+#  集合与插件
+# ---------------------------------------------------------------------------
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: /blog/:year/:month/:day/:title/
+
+# 构建时排除
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - bin
+  - vendor
+  - node_modules
+  - .github
+
+sass:
+  quiet_deps: true

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img">
+<defs>
+  <linearGradient id="bg0" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#3B1E8C"/><stop offset="1" stop-color="#E15A8C"/>
+  </linearGradient>
+  <radialGradient id="halo0" cx="0.72" cy="0.24" r="0.72">
+    <stop offset="0" stop-color="#FFD9E8" stop-opacity="0.30"/>
+    <stop offset="1" stop-color="#FFD9E8" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="g0"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.16"/></feComponentTransfer></filter>
+</defs>
+<rect width="1600" height="1000" fill="url(#bg0)"/>
+<rect width="1600" height="1000" fill="url(#halo0)"/>
+<circle cx="800" cy="525" r="96" fill="none" stroke="#FFD9E8" stroke-opacity="0.42" stroke-width="1"/><circle cx="800" cy="525" r="184" fill="none" stroke="#FFD9E8" stroke-opacity="0.39" stroke-width="2"/><circle cx="800" cy="525" r="272" fill="none" stroke="#FFD9E8" stroke-opacity="0.35" stroke-width="1"/><circle cx="800" cy="525" r="360" fill="none" stroke="#FFD9E8" stroke-opacity="0.31" stroke-width="2"/><circle cx="800" cy="525" r="448" fill="none" stroke="#FFD9E8" stroke-opacity="0.28" stroke-width="1"/><circle cx="800" cy="525" r="536" fill="none" stroke="#FFD9E8" stroke-opacity="0.24" stroke-width="2"/><circle cx="800" cy="525" r="624" fill="none" stroke="#FFD9E8" stroke-opacity="0.21" stroke-width="1"/><circle cx="800" cy="525" r="712" fill="none" stroke="#FFD9E8" stroke-opacity="0.17" stroke-width="2"/><circle cx="800" cy="525" r="800" fill="none" stroke="#FFD9E8" stroke-opacity="0.14" stroke-width="1"/><circle cx="624" cy="360" r="176" fill="#FFD9E8" fill-opacity="0.13"/>
+<rect width="1600" height="1000" fill="#fff" filter="url(#g0)" opacity="0.5"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#FFD9E8">
+  <text x="88" y="945" font-size="21" letter-spacing="9" opacity="0.6">JEKYLL · PORTFOLIO · AOSP QA PLATFORM</text>
+</g>
+<text x="1504" y="950" text-anchor="end" font-family="ui-sans-serif, Helvetica, Arial, sans-serif"
+      font-size="300" font-weight="700" fill="none" stroke="#FFD9E8" stroke-opacity="0.34"
+      stroke-width="2.0" letter-spacing="-6">01</text>
+</svg>

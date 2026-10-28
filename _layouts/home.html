@@ -1,0 +1,206 @@
+---
+layout: default
+---
+{%- assign all_projects = site.projects | sort: 'order' -%}
+{%- assign featured = all_projects | where: 'featured', true -%}
+{%- assign gallery = all_projects | where_exp: 'p', 'p.featured != true' -%}
+
+<!-- ================= 首屏 ================= -->
+<section class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="container">
+    <p class="eyebrow reveal">{{ page.hero.eyebrow }}</p>
+
+    <h1 class="hero__title reveal" style="--d:60ms">{{ page.hero.title }}</h1>
+
+    <div class="hero__grid">
+      <div>
+        <p class="hero__lead reveal" style="--d:120ms">{{ page.hero.lead }}</p>
+
+        <div class="hero__actions reveal" style="--d:180ms">
+          <a class="btn btn--primary" href="{{ '/projects/' | relative_url }}">
+            浏览作品 {% include icon.html name='arrow-up-right' %}
+          </a>
+          <a class="btn btn--ghost" href="#selected">
+            {% include icon.html name='arrow-down' %} 往深处看
+          </a>
+        </div>
+
+        <div class="hero__meta reveal" style="--d:240ms">
+          <span><i class="dot-live" aria-hidden="true"></i> 正在做：{{ page.hero.now }}</span>
+          <span>{{ site.author.location }}</span>
+        </div>
+      </div>
+
+      <div class="portrait reveal" style="--d:200ms">
+        <div class="portrait__dots" aria-hidden="true"></div>
+        <div class="portrait__frame">
+          <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }} 的头像"
+               width="800" height="880" loading="eager">
+        </div>
+        <span class="portrait__badge">
+          {% include icon.html name='layers' %} 运维 · 后端
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 关键词条 ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    {%- for i in (1..2) %}
+    <span>
+      {%- for word in site.data.ticker %}{{ word }} ◆ {% endfor -%}
+    </span>
+    {%- endfor %}
+  </div>
+</div>
+
+<!-- ================= 精选作品 ================= -->
+{%- if featured.size > 0 %}
+<section class="section" id="featured">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <p class="eyebrow">Selected work</p>
+        <h2 class="section-head__title">精选项目</h2>
+        <p class="section-head__desc">{{ page.featured_desc }}</p>
+      </div>
+      <a class="section-head__link" href="{{ '/projects/' | relative_url }}">
+        全部作品 {% include icon.html name='arrow-right' %}
+      </a>
+    </div>
+
+    <div class="featured-grid">
+      {%- for item in featured limit: 2 %}
+        {%- assign fd = forloop.index0 | times: 90 %}
+        {% include project-card.html card=item reveal=true delay=fd %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<!-- ================= 项目网格 ================= -->
+{%- if gallery.size > 0 %}
+<section class="section section--soft" id="selected">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <p class="eyebrow">More projects</p>
+        <h2 class="section-head__title">其他实践</h2>
+      </div>
+      <a class="section-head__link" href="{{ '/projects/' | relative_url }}">
+        全部作品 {% include icon.html name='arrow-right' %}
+      </a>
+    </div>
+
+    <div class="work-grid">
+      {%- for item in gallery limit: 6 %}
+        {%- assign d = forloop.index0 | times: 80 %}
+        {% include project-card.html card=item reveal=true delay=d %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<!-- ================= 数据 ================= -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="stats reveal">
+      {%- for s in site.data.stats %}
+      <div>
+        <div class="stat__num">
+          <span data-count="{{ s.number }}">0</span><small>{{ s.suffix }}</small>
+        </div>
+        <p class="stat__label">{{ s.label }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ================= 能力 ================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <p class="eyebrow">What I do</p>
+        <h2 class="section-head__title">我能解决的三类问题</h2>
+        <p class="section-head__desc">从测试自动化到基础设施，关注的是「让流程可复现、让故障可定位」。</p>
+      </div>
+    </div>
+
+    <div class="skill-grid">
+      {%- for skill in site.data.capabilities %}
+      {%- assign d = forloop.index0 | times: 80 %}
+      <article class="skill reveal" style="--d:{{ d }}ms">
+        <p class="skill__num">0{{ forloop.index }} / {{ skill.en }}</p>
+        <h3 class="skill__title">{{ skill.title }}</h3>
+        <p class="skill__text">{{ skill.text }}</p>
+        <ul class="skill__list">
+          {%- for tag in skill.tags %}<li>{{ tag }}</li>{% endfor %}
+        </ul>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ================= 评价 ================= -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <p class="eyebrow">Kind words</p>
+        <h2 class="section-head__title">合作者的评价</h2>
+      </div>
+    </div>
+
+    <div class="quote-grid">
+      {%- for q in site.data.testimonials %}
+      {%- assign d = forloop.index0 | times: 90 %}
+      <figure class="quote reveal" style="--d:{{ d }}ms">
+        <span class="quote__mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="quote__text">{{ q.text }}</blockquote>
+        <figcaption class="quote__who">
+          <span class="quote__ava" aria-hidden="true">{{ q.name | slice: 0 }}</span>
+          <span>
+            <span class="quote__name">{{ q.name }}</span><br>
+            <span class="quote__role">{{ q.role }}</span>
+          </span>
+        </figcaption>
+      </figure>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ================= 最新文章 ================= -->
+{%- if site.posts.size > 0 %}
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <p class="eyebrow">Journal</p>
+        <h2 class="section-head__title">最近的思考</h2>
+        <p class="section-head__desc">工程笔记、踩坑复盘、方法论沉淀。</p>
+      </div>
+      <a class="section-head__link" href="{{ '/blog/' | relative_url }}">
+        全部文章 {% include icon.html name='arrow-right' %}
+      </a>
+    </div>
+
+    <div class="journal">
+      {%- for post in site.posts limit: 3 %}
+        {%- assign d = forloop.index0 | times: 80 %}
+        {% include post-item.html post=post reveal=true delay=d %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{% include cta.html %}

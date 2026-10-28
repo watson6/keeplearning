@@ -1,0 +1,103 @@
+---
+layout: default
+---
+{%- assign all = site.projects | sort: 'order' -%}
+{%- assign idx = nil -%}
+{%- for p in all %}{% if p.url == page.url %}{% assign idx = forloop.index0 %}{% endif %}{% endfor -%}
+{%- if idx %}
+  {%- assign prev_i = idx | minus: 1 -%}
+  {%- assign next_i = idx | plus: 1 -%}
+  {%- if prev_i >= 0 %}{% assign prev = all[prev_i] %}{% endif -%}
+  {%- if next_i < all.size %}{% assign next = all[next_i] %}{% endif -%}
+{%- endif %}
+
+<article class="project">
+  <section class="project-hero">
+    <div class="container">
+      <p class="eyebrow reveal">{{ page.tag | default: 'Case study' }}</p>
+      <h1 class="page-head__title reveal" style="--d:60ms">{{ page.title }}</h1>
+      {%- if page.summary %}
+      <p class="page-head__desc reveal" style="--d:120ms">{{ page.summary }}</p>
+      {%- endif %}
+
+      <div class="facts reveal">
+        <div class="fact">
+          <p class="fact__label">客户 / 场景</p>
+          <p class="fact__value">{{ page.client | default: '—' }}</p>
+        </div>
+        <div class="fact">
+          <p class="fact__label">角色</p>
+          <p class="fact__value">{{ page.role_in_project | default: '—' }}</p>
+        </div>
+        <div class="fact">
+          <p class="fact__label">年份</p>
+          <p class="fact__value">{{ page.year | default: '—' }}</p>
+        </div>
+        <div class="fact">
+          <p class="fact__label">周期</p>
+          <p class="fact__value">{{ page.duration | default: '—' }}</p>
+        </div>
+      </div>
+
+      <div class="project-hero__cover reveal" style="--d:180ms">
+        <img src="{{ page.cover | relative_url }}" alt="{{ page.title }} 封面图"
+             width="1600" height="1000" loading="eager">
+      </div>
+
+      <div class="project-body">
+        <div class="prose reveal" style="--d:220ms">
+          {{ content }}
+        </div>
+
+        <aside class="project-aside reveal" style="--d:260ms">
+          {%- if page.stack %}
+          <p class="fact__label">技术栈</p>
+          <ul class="stack-list" style="margin-bottom:24px">
+            {%- for s in page.stack %}<li>{{ s }}</li>{% endfor %}
+          </ul>
+          {%- endif %}
+
+          {%- if page.outcomes %}
+          <p class="fact__label">关键结果</p>
+          <ul class="stack-list">
+            {%- for o in page.outcomes %}
+            <li style="background:none;padding:0;font-family:var(--font-sans);text-transform:none;font-size:14px;letter-spacing:0">
+              · {{ o }}
+            </li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </aside>
+      </div>
+
+      {%- if page.gallery %}
+      <div class="gallery reveal">
+        {%- for g in page.gallery %}
+        <img src="{{ g | relative_url }}" alt="{{ page.title }} 过程截图 {{ forloop.index }}" loading="lazy" width="1200" height="800">
+        {%- endfor %}
+      </div>
+      {%- endif %}
+
+      <nav class="project-nav" aria-label="项目导航">
+        <div>
+          {%- if prev %}
+          <a href="{{ prev.url | relative_url }}">
+            <span>← 上一个</span>
+            <strong>{{ prev.title }}</strong>
+          </a>
+          {%- endif %}
+        </div>
+        <div style="text-align:right">
+          {%- if next %}
+          <a href="{{ next.url | relative_url }}">
+            <span>下一个 →</span>
+            <strong>{{ next.title }}</strong>
+          </a>
+          {%- endif %}
+        </div>
+      </nav>
+    </div>
+  </section>
+</article>
+
+{% include cta.html %}

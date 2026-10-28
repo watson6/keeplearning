@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img">
+<defs>
+  <linearGradient id="db13" x1="1" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#5B7CFA"/><stop offset="1" stop-color="#1E2A47"/>
+  </linearGradient>
+  <filter id="g53"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.16"/></feComponentTransfer></filter>
+</defs>
+<rect width="1400" height="900" fill="url(#db13)"/>
+<rect x="112" y="377" width="42" height="361" rx="21" fill="#D6E0FF" fill-opacity="0.16"/><rect x="200" y="119" width="42" height="619" rx="21" fill="#D6E0FF" fill-opacity="0.25"/><rect x="287" y="37" width="42" height="701" rx="21" fill="#D6E0FF" fill-opacity="0.34"/><rect x="374" y="163" width="42" height="575" rx="21" fill="#D6E0FF" fill-opacity="0.43"/><rect x="462" y="450" width="42" height="288" rx="21" fill="#D6E0FF" fill-opacity="0.16"/><rect x="550" y="398" width="42" height="340" rx="21" fill="#D6E0FF" fill-opacity="0.25"/><rect x="637" y="131" width="42" height="607" rx="21" fill="#D6E0FF" fill-opacity="0.34"/><rect x="724" y="36" width="42" height="702" rx="21" fill="#D6E0FF" fill-opacity="0.43"/><rect x="812" y="149" width="42" height="589" rx="21" fill="#D6E0FF" fill-opacity="0.16"/><rect x="900" y="427" width="42" height="311" rx="21" fill="#D6E0FF" fill-opacity="0.25"/><rect x="987" y="420" width="42" height="318" rx="21" fill="#D6E0FF" fill-opacity="0.34"/><rect x="1074" y="144" width="42" height="594" rx="21" fill="#D6E0FF" fill-opacity="0.43"/><rect x="1162" y="36" width="42" height="702" rx="21" fill="#D6E0FF" fill-opacity="0.16"/><rect x="1250" y="135" width="42" height="603" rx="21" fill="#D6E0FF" fill-opacity="0.25"/><rect x="1337" y="405" width="42" height="333" rx="21" fill="#D6E0FF" fill-opacity="0.34"/><rect x="1424" y="442" width="42" height="296" rx="21" fill="#D6E0FF" fill-opacity="0.43"/>
+<rect width="1400" height="900" fill="#000" filter="url(#g53)" opacity="0.32"/>
+</svg>

@@ -1,0 +1,39 @@
+<header class="site-nav">
+  <div class="container site-nav__inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} 首页">
+      <span class="brand__mark" aria-hidden="true">W</span>
+      <span>
+        {{ site.title }}
+        <span class="brand__sub">{{ site.tagline }}</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="主导航">
+      {%- for item in site.nav %}
+        {%- assign active = false %}
+        {%- if item.url == '/' %}
+          {%- if page.url == '/' %}{% assign active = true %}{% endif %}
+        {%- else %}
+          {%- if page.url contains item.url %}{% assign active = true %}{% endif %}
+        {%- endif %}
+        <a href="{{ item.url | relative_url }}"
+           {% if active %}aria-current="page"{% endif %}>{{ item.name }}</a>
+      {%- endfor %}
+    </nav>
+
+    <div class="nav-tools">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="切换深浅色">
+        <span class="icon-sun">{% include icon.html name='sun' %}</span>
+        <span class="icon-moon">{% include icon.html name='moon' %}</span>
+      </button>
+      <a class="btn btn--primary btn--sm" href="{{ site.cta.url | relative_url }}">
+        {{ site.cta.label }}
+        {% include icon.html name='arrow-up-right' %}
+      </a>
+      <button class="nav-burger" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="nav-links" aria-label="打开菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

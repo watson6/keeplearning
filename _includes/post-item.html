@@ -1,0 +1,16 @@
+{%- assign post = include.post -%}
+<article class="post-item{% if include.reveal %} reveal{% endif %}"
+         {% if include.reveal %}style="--d:{{ include.delay | default: 0 }}ms"{% endif %}>
+  <div class="post-item__meta">
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+    {%- if post.category %}<span>{{ post.category }}</span>{% endif %}
+    <span>{{ post.content | number_of_words | divided_by: 300 | at_least: 1 }} 分钟</span>
+  </div>
+  <h3 class="post-item__title">
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </h3>
+  <p class="post-item__excerpt">{{ post.excerpt | strip_html | truncate: 84 }}</p>
+  <a class="post-item__more" href="{{ post.url | relative_url }}">
+    阅读全文 {% include icon.html name='arrow-right' %}
+  </a>
+</article>

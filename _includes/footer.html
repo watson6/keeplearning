@@ -1,0 +1,53 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="brand" href="{{ '/' | relative_url }}">
+          <span class="brand__mark" aria-hidden="true">W</span>
+          <span>{{ site.title }}</span>
+        </a>
+        <p>{{ site.author.bio }}</p>
+      </div>
+
+      <div>
+        <h4>站点</h4>
+        <ul>
+          {%- for item in site.nav %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.name }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <h4>内容</h4>
+        <ul>
+          <li><a href="{{ '/projects/' | relative_url }}">全部作品</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}">全部文章</a></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS 订阅</a></li>
+          <li><a href="{{ '/sitemap.xml' | relative_url }}">站点地图</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>联络</h4>
+        <ul>
+          {%- for s in site.social %}
+          <li><a href="{{ s.url }}" {% if s.url contains 'http' %}target="_blank" rel="noopener"{% endif %}>{{ s.name }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="site-footer__bottom">
+      <span>© <span data-year>2026</span> {{ site.author.name }} · {{ site.footer_note }}</span>
+      <span>{{ site.author.location }}</span>
+    </div>
+  </div>
+
+  <div class="site-footer__word container" aria-hidden="true">
+    {%- assign letters = "WATSON" | split: "" -%}
+    {%- for l in letters %}<span>{{ l }}</span>{% endfor -%}
+  </div>
+</footer>

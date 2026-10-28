@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# 本地开发：./bin/serve  →  http://127.0.0.1:4000
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+# Homebrew Ruby（系统 Ruby 2.6 装不了现代 gem）
+export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/4.0.0/bin:$PATH"
+
+if ! bundle check >/dev/null 2>&1; then
+  echo "→ 安装依赖..."
+  bundle install
+fi
+
+echo "→ 启动本地服务 http://127.0.0.1:4000/keeplearning/"
+exec bundle exec jekyll serve --livereload --host 127.0.0.1 --port 4000 "$@"

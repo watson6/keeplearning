@@ -1,0 +1,15 @@
+# 构建产物
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# 依赖（Gemfile.lock 需要提交，保证 CI 与本地依赖一致）
+vendor/
+.bundle/
+
+# 系统 / 编辑器
+.DS_Store
+*.swp
+.idea/
+.vscode/

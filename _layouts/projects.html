@@ -1,0 +1,39 @@
+---
+layout: default
+---
+{%- assign all = site.projects | sort: 'order' -%}
+{%- assign tags = all | map: 'tag' | uniq -%}
+
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow reveal">{{ page.eyebrow | default: 'Work' }}</p>
+    <h1 class="page-head__title reveal" style="--d:60ms">{{ page.title }}</h1>
+    {%- if page.description %}
+    <p class="page-head__desc reveal" style="--d:120ms">{{ page.description }}</p>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section" style="padding-top:clamp(20px,3vw,40px)">
+  <div class="container">
+    <div class="filters reveal">
+      <button class="filter-btn is-active" type="button" data-filter="all">全部</button>
+      {%- for t in tags %}
+        {%- if t %}<button class="filter-btn" type="button" data-filter="{{ t }}">{{ t }}</button>{% endif %}
+      {%- endfor %}
+    </div>
+
+    <div class="work-grid">
+      {%- for item in all %}
+        {%- assign d = forloop.index0 | times: 70 %}
+        {% include project-card.html card=item reveal=true delay=d %}
+      {%- endfor %}
+    </div>
+
+    {%- if all.size == 0 %}
+    <p style="color:var(--muted)">还没有发布项目。在 <code>_projects/</code> 目录添加 Markdown 文件即可。</p>
+    {%- endif %}
+  </div>
+</section>
+
+{% include cta.html %}

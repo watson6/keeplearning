@@ -1,0 +1,52 @@
+---
+layout: default
+---
+<article class="article">
+  <section class="article-head">
+    <div class="container">
+      <p class="eyebrow reveal">{{ page.category | default: 'Journal' }}</p>
+      <h1 class="article-title reveal" style="--d:60ms">{{ page.title }}</h1>
+      <div class="article-meta reveal" style="--d:120ms">
+        <span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time></span>
+        <span>{{ page.content | number_of_words | divided_by: 300 | at_least: 1 }} 分钟阅读</span>
+        {%- if page.tags.size > 0 %}
+        <span>{{ page.tags | join: ' / ' }}</span>
+        {%- endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(24px,3vw,40px)">
+    <div class="container">
+      <div class="project-body">
+        <div class="prose reveal" style="--d:160ms">
+          {{ content }}
+        </div>
+
+        <aside class="project-aside reveal" style="--d:220ms">
+          <p class="fact__label">关于作者</p>
+          <p style="font-size:14.5px;color:var(--muted);line-height:1.6;margin-bottom:18px">
+            {{ site.author.name }} · {{ site.author.role }}
+          </p>
+          {%- if page.tags.size > 0 %}
+          <p class="fact__label">标签</p>
+          <div class="tag-list">
+            {%- for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+          </div>
+          {%- endif %}
+        </aside>
+      </div>
+
+      <div class="article-foot">
+        <a class="btn btn--ghost btn--sm" href="{{ '/blog/' | relative_url }}">
+          {% include icon.html name='arrow-left' %} 返回文章列表
+        </a>
+        <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">
+          最后更新 {{ page.last_modified_at | default: page.date | date: "%Y.%m.%d" }}
+        </span>
+      </div>
+    </div>
+  </section>
+</article>
+
+{% include cta.html %}

@@ -1,0 +1,14 @@
+- title: 测试流程自动化
+  en: Automation
+  text: 把手工验收清单改造成分层自动化：设备层、UI 层、接口层各司其职，失败用例自带截图与日志，回归从半天压到十几分钟。
+  tags: [Pytest, Appium, ADB, AOSP]
+
+- title: 基础设施与流水线
+  en: Infrastructure
+  text: 设备集群集中调度、镜像与固件版本可追溯、CI 一键出包并回写测试报告，让"环境不一致"这类问题从根上消失。
+  tags: [GitLab CI, Docker, Linux, Shell]
+
+- title: 后端接口与可观测
+  en: Backend
+  text: 内部工具与接口服务的设计实现，配齐结构化日志、指标与告警收敛，故障定位从"猜"变成"看"。
+  tags: [Python, REST, Prometheus, Grafana]

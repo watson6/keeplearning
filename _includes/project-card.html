@@ -1,0 +1,24 @@
+{%- assign card = include.card -%}
+<article class="card{% if include.reveal %} reveal{% endif %}"
+         {% if include.reveal %}style="--d:{{ include.delay | default: 0 }}ms"{% endif %}
+         data-tags="{{ card.tags | join: ',' }}">
+  <a class="card__media" href="{{ card.url | relative_url }}" aria-label="查看项目：{{ card.title }}">
+    <img src="{{ card.cover | relative_url }}"
+         alt="{{ card.title }}{% if card.client %} —— {{ card.client }}{% endif %}"
+         loading="lazy" decoding="async" width="1600" height="1000">
+    {%- if card.tag %}<span class="card__tag">{{ card.tag }}</span>{% endif %}
+  </a>
+  <div class="card__body">
+    <div>
+      <h3 class="card__title">
+        <a href="{{ card.url | relative_url }}">{{ card.title }}</a>
+      </h3>
+      <p class="card__meta">
+        {%- if card.client %}{{ card.client }} · {% endif %}{{ card.year | default: "—" }}
+      </p>
+    </div>
+    <a class="card__arrow" href="{{ card.url | relative_url }}" aria-hidden="true" tabindex="-1">
+      {% include icon.html name='arrow-up-right' %}
+    </a>
+  </div>
+</article>

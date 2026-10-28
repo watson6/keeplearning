@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="880" viewBox="0 0 800 880" role="img">
+<defs>
+  <linearGradient id="ab" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#1A0F3D"/><stop offset="0.55" stop-color="#4B2B9E"/><stop offset="1" stop-color="#C4468F"/>
+  </linearGradient>
+  <radialGradient id="al" cx="0.72" cy="0.18" r="0.8">
+    <stop offset="0" stop-color="#9B83FF" stop-opacity="0.55"/><stop offset="1" stop-color="#9B83FF" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="af" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F6F1FF" stop-opacity="0.95"/><stop offset="1" stop-color="#D8C8F7" stop-opacity="0.75"/>
+  </linearGradient>
+  <filter id="ag"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.13"/></feComponentTransfer></filter>
+</defs>
+<rect width="800" height="880" fill="url(#ab)"/>
+<rect width="800" height="880" fill="url(#al)"/>
+<g opacity="0.5">
+  <circle cx="640" cy="150" r="180" fill="none" stroke="#FFD9E8" stroke-opacity="0.35"/>
+  <circle cx="640" cy="150" r="250" fill="none" stroke="#FFD9E8" stroke-opacity="0.18"/>
+  <circle cx="640" cy="150" r="320" fill="none" stroke="#FFD9E8" stroke-opacity="0.1"/>
+</g>
+<!-- 肩颈 -->
+<path d="M120 880c0-150 125-232 280-232s280 82 280 232z" fill="url(#af)" opacity="0.28"/>
+<!-- 头部 -->
+<circle cx="400" cy="380" r="168" fill="url(#af)" opacity="0.30"/>
+<circle cx="400" cy="380" r="168" fill="none" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="2"/>
+<!-- 侧光 -->
+<path d="M400 212a168 168 0 0 1 0 336 200 200 0 0 0 0-336z" fill="#FFD9E8" opacity="0.16"/>
+<!-- 点阵 -->
+<g fill="#FFD9E8" opacity="0.5">
+  <circle cx="132" cy="618" r="3"/><circle cx="164" cy="618" r="3"/><circle cx="196" cy="618" r="3"/>
+  <circle cx="132" cy="650" r="3"/><circle cx="164" cy="650" r="3"/><circle cx="196" cy="650" r="3"/>
+  <circle cx="132" cy="682" r="3"/><circle cx="164" cy="682" r="3"/><circle cx="196" cy="682" r="3"/>
+</g>
+<rect width="800" height="880" fill="#fff" filter="url(#ag)" opacity="0.6"/>
+</svg>

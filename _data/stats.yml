@@ -1,0 +1,13 @@
+# ⚠️ 示例数据 —— 请替换成你的真实数字
+- number: 6
+  suffix: 年+
+  label: 工程一线经验
+- number: 12
+  suffix: 台
+  label: 常驻测试设备
+- number: 340
+  suffix: 个
+  label: 自动化用例
+- number: 92
+  suffix: "%"
+  label: 回归测试覆盖率
