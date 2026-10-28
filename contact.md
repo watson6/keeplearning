@@ -6,8 +6,8 @@ description: 描述一下场景和卡点，我会告诉你这件事能不能自�
 aside: |
   ### 直接联系
 
-  - **邮箱**：[hello@example.com](mailto:hello@example.com)
   - **GitHub**：[github.com/watson6](https://github.com/watson6)
+  - **方式**：通过 GitHub 提 Issue 或发消息
 
   ### 响应时间
 
@@ -31,7 +31,7 @@ permalink: /contact/
 
 ## 一些说明
 
-这个站点是纯静态的（Jekyll 构建、GitHub Pages 托管），所以页面上的表单不会真的发信。**请直接用上面的邮箱联系我**，或者把下面这封模板复制走改一改：
+这个站点是纯静态的（Jekyll 构建、GitHub Pages 托管），页面上的表单不会真的发信。**请通过上面的 GitHub 主页联系我**，或者把下面这封信的模板复制走改一改：
 
 ```text
 主题：[项目咨询] 一句话说明场景

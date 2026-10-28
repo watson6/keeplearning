@@ -157,8 +157,10 @@ python3 bin/gen-art.py
 
 发布前建议改掉这些占位内容：
 
-- `_config.yml`：`author.email`、`social` 里的地址
+- `_config.yml`：`author` 信息、`social` 里的链接
 - `_data/stats.yml`：四组数字（目前是示例值）
 - `_data/testimonials.yml`：评价内容（或删掉整个文件与首页对应区块）
 - `_projects/*.md`：项目描述细节
 - `assets/img/avatar.svg`：换成真实头像
+
+> 本仓库不含任何邮箱地址 —— 联系方式统一走 GitHub 主页，避免个人信息泄露。

@@ -29,17 +29,13 @@ author:
   role: 后端开发工程师 / 运维工程师
   bio: 负责 AOSP 大屏智能交互平板测试流程自动化改造，长期在 Linux、CI/CD、脚本工程与后端接口之间穿梭。
   avatar: /assets/img/avatar.svg
-  email: hello@example.com
   location: 广州 · 中国
 
-# 社交链接（把 url 换成你的真实地址，留空则不渲染）
+# 社交链接（只放公开主页，不放邮箱）
 social:
   - name: GitHub
     icon: github
     url: "https://github.com/watson6"
-  - name: 邮件
-    icon: mail
-    url: "mailto:hello@example.com"
 
 # 导航
 nav:
